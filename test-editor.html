@@ -8,14 +8,29 @@
     <script src="./index.js"></script>
   </head>
   <body>
-    <div id="board">Board</div>
     <label id="display"></label>
-    <textarea id="editionBoard" cols="30" rows="10"></textarea>
-    <button id="saveButton">Save changes</button>
-    <button id="displayContentSavedButton">Display Content Saved</button>
-    <button id="displayContentLoadedButton">Display Content Loaded</button>
-    <button id="donwloadData">Donwload Data</button>
-    <button id="loadData">Load Data</button>
+    <div id="questionBoard">Question</div>
+    <textarea id="questionTextArea" cols="90" rows="6"></textarea>
+    <div id="answerA-board">Answer A</div>
+    <textarea id="answerATextArea" cols="90" rows="4"></textarea>
+    <div id="answerB-board">Answer B</div>
+    <textarea id="answerBTextArea" cols="90" rows="4"></textarea>
+    <div id="answerC-board">Answer C</div>
+    <textarea id="answerCTextArea" cols="90" rows="4"></textarea>
+    <div id="answerC-board">Answer D</div>
+    <textarea id="answerDTextArea" cols="90" rows="4"></textarea>
+    <label for="options">Mark the correct option</label>
+
+    <select id="options">
+      <option label="A"></option>
+      <option label="B"></option>
+      <option label="C"></option>
+      <option label="D"></option>
+    </select>
+    <button id="saveButton">Save Test of current test collection</button>
+    <button id="displayContentSavedButton">main Menu</button>
+    <button id="downloadTests">Donwload Test Collection</button>
+    <button id="loadTests">Upload Test Collection</button>
     <input type="file" onchange="readFile()" name:"upload Data" /><br />
   </body>
 </html>
