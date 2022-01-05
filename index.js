@@ -1,25 +1,28 @@
 let array = JSON.parse(localStorage.getItem("SelfTest"));
+let arrayContentLoaded;
 if (array == null) {
   //Se crea el array
   array = [];
 }
-let i;
-let finalFile;
+let externalFile;
 
-function leer(input, form) {
-  for (var i = 0; i < input.files.length; i++) {
-    if (input.files[i]) {
-      var reader = new FileReader();
+function readFile() {
+  const display = document.getElementById("display");
+  const [file] = document.querySelector("input[type=file]").files;
+  const reader = new FileReader();
 
-      reader.onload = function (e) {
-        let img = document.querySelector('<img id="dynamic">');
-        img.attr("src", e.target.result);
-        img.appendTo(form);
-      };
-      reader.readAsDataURL(input.files[i]);
-    }
+  reader.addEventListener(
+    "load",
+    () => {
+      // this will then display a text file
+      externalFile = reader.result;
+    },
+    false
+  );
+
+  if (file) {
+    reader.readAsText(file);
   }
-  return input.file[0];
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -30,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document
-    .getElementById("displayContentButton")
+    .getElementById("displayContentSavedButton")
     .addEventListener("click", function () {
       array.forEach((element) => {
         document.getElementById("display").innerHTML += element + "<br>";
@@ -48,18 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
       a.click();
     });
 
-  document.getElementById("uploadData").addEventListener("click", function () {
-    let archivo = document.getElementById("pic");
-    archivo.addEventListener("change", function (event) {
-      finalFile = leer();
-    });
-    console.log(finalFile);
-    /*  var file = document.getElementById("file").files[0];
-    var reader = new FileReader();
-    reader.readAsText(file);
-    reader.onload = function (event) {
-      let data = event.target.result;
-      array = JSON.parse(data);
-    }; */
+  document.getElementById("loadData").addEventListener("click", function () {
+    arrayContentLoaded = JSON.parse(externalFile);
   });
+
+  document
+    .getElementById("displayContentLoadedButton")
+    .addEventListener("click", function () {
+      arrayContentLoaded.forEach((element) => {
+        document.getElementById("display").innerHTML += element + "<br>";
+      });
+    });
 });
