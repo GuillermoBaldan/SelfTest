@@ -18,4 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("display").innerHTML += element + "<br>";
       });
     });
+
+  document
+    .getElementById("donwloadData")
+    .addEventListener("click", function () {
+      var data = JSON.stringify(array);
+      var a = document.createElement("a");
+      var file = new Blob([data], { type: "text/plain" });
+      a.href = URL.createObjectURL(file);
+      a.download = "SelfTest.json";
+      a.click();
+    });
 });
