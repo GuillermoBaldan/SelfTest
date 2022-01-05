@@ -4,18 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SelfTest</title>
-    <script src="./index.js"></script>
+    <title>file-reader</title>
+    <script src="./file-reader.js"></script>
   </head>
   <body>
     <div id="board">Board</div>
     <label id="display"></label>
-    <textarea id="editionBoard" cols="30" rows="10"></textarea>
-    <button id="saveButton">Save changes</button>
     <button id="displayContentButton">Display Content Saved</button>
-    <button id="donwloadData">Donwload Data</button>
     <button id="uploadData">Upload Data</button>
     <button id="LoadData">Load Data</button>
-    <input type="file" name="pic" id="pic" onchage="javascript:leer()" />
+    <input type="file" onchange="previewFile()" /><br />
+    <p class="content"></p>
   </body>
 </html>
