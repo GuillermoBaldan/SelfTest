@@ -1,4 +1,4 @@
-import { saveTest } from "./SelfTest_functions.js";
+import { saveTest } from "..SelfTest_functions.js";
 
 let allTestsArray = JSON.parse(localStorage.getItem("SelfTest"));
 let arrayContentLoaded;

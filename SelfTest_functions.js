@@ -10,3 +10,7 @@ function saveTest(collectionNumber, question, a, b, c, d, solution) {
   allTestsArray[collectionNumber].tests.push(test);
   localStorage.setItem("SelfTest", JSON.stringify(allTestsArray));
 }
+
+exports = {
+  saveTest,
+};

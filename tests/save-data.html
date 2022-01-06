@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SelfTest</title>
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <label id="display"></label>
+    <div id="questionBoard">Question</div>
+    <textarea id="questionTextArea" cols="90" rows="6"></textarea>
+    <div id="answerA-board">Answer A</div>
+    <textarea id="answerATextArea" cols="90" rows="4"></textarea>
+    <div id="answerB-board">Answer B</div>
+    <textarea id="answerBTextArea" cols="90" rows="4"></textarea>
+    <div id="answerC-board">Answer C</div>
+    <textarea id="answerCTextArea" cols="90" rows="4"></textarea>
+    <div id="answerC-board">Answer D</div>
+    <textarea id="answerDTextArea" cols="90" rows="4"></textarea>
+    <label for="options">Mark the correct option</label>
+
+    <select id="options">
+      <option label="A"></option>
+      <option label="B"></option>
+      <option label="C"></option>
+      <option label="D"></option>
+    </select>
+    <button id="saveButton">Save Test of current test collection</button>
+    <button id="displayContentSavedButton">main Menu</button>
+    <button id="downloadTests">Donwload Test Collection</button>
+    <button id="loadTests">Upload Test Collection</button>
+    <input type="file" onchange="readFile()" name:"upload Data" /><br />
+  </body>
+</html>
