@@ -1,3 +1,5 @@
+import { allTestsArray } from "./index.js";
+
 function saveTest(collectionNumber, question, a, b, c, d, solution) {
   let test = {
     question: question,

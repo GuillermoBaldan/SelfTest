@@ -28,9 +28,17 @@ function readFile() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document
-    .getElementById("saveButton")
-    .addEventListener("click", function () {});
+  document.getElementById("saveButton").addEventListener("click", function () {
+    let select = document.getElementById("options");
+    let collectionNumber = 0;
+    let question = document.getElementById("questionTextArea").value;
+    let a = document.getElementById("answerATextArea").value;
+    let b = document.getElementById("answerBTextArea").value;
+    let c = document.getElementById("answerC-board").value;
+    let d = document.getElementById("answerD-board").value;
+    let solution = select.options[select.selectedIndex].value;
+    saveTest(collectionNumber, a, b, c, d, solution);
+  });
 
   document
     .getElementById("displayContentSavedButton")
@@ -41,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   document
-    .getElementById("donwloadData")
+    .getElementById("downloadTests")
     .addEventListener("click", function () {
       let data = JSON.stringify(array);
       let a = document.createElement("a");
@@ -51,15 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
       a.click();
     });
 
-  document.getElementById("loadData").addEventListener("click", function () {
+  document.getElementById("loadTests").addEventListener("click", function () {
     arrayContentLoaded = JSON.parse(externalFile);
   });
 
-  document
-    .getElementById("displayContentLoadedButton")
-    .addEventListener("click", function () {
-      arrayContentLoaded.forEach((element) => {
-        document.getElementById("display").innerHTML += element + "<br>";
-      });
+  document.getElementById("display").addEventListener("click", function () {
+    arrayContentLoaded.forEach((element) => {
+      document.getElementById("display").innerHTML += element + "<br>";
     });
+  });
 });
