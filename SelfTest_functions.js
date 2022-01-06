@@ -11,6 +11,4 @@ function saveTest(collectionNumber, question, a, b, c, d, solution) {
   localStorage.setItem("SelfTest", JSON.stringify(allTestsArray));
 }
 
-exports = {
-  saveTest,
-};
+export { saveTest };
