@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   document.getElementById("showData").addEventListener("click", function () {
-    console.log(JSON.parse(localStorage.getItem("SelfTest")));
+    showLocalStoreMemoApp();
   });
 });
 

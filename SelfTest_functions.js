@@ -27,4 +27,8 @@ function formatLocalStoreMemoApp() {
   localStorage.setItem("SelfTest", JSON.stringify(voidData));
 }
 
+function showLocalStoreMemoApp() {
+  console.log(JSON.parse(localStorage.getItem("SelfTest")));
+}
+
 export { saveTest, createTestCollection, formatLocalStoreMemoApp };
