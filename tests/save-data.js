@@ -29,24 +29,30 @@ function readFile() {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("saveButton").addEventListener("click", function () {
-    let select = document.getElementById("options");
-    let collectionNumber = 0;
-    let question = document.getElementById("questionTextArea").value;
-    let a = document.getElementById("answerATextArea").value;
-    let b = document.getElementById("answerBTextArea").value;
-    let c = document.getElementById("answerC-board").value;
-    let d = document.getElementById("answerD-board").value;
-    let solution = select.options[select.selectedIndex].value;
-    saveTest(collectionNumber, a, b, c, d, solution);
+    if (allTestsArray == []) {
+      //Display Modal for creating a new test collection
+      let modal = document.querySelector(".modal");
+      let container = modal.querySelector(".container-modal");
+    } else {
+      let select = document.getElementById("options");
+      let collectionNumber = 0;
+      let question = document.getElementById("questionTextArea").value;
+      let a = document.getElementById("answerATextArea").value;
+      let b = document.getElementById("answerBTextArea").value;
+      let c = document.getElementById("answerC-board").value;
+      let d = document.getElementById("answerD-board").value;
+      let solution = select.options[select.selectedIndex].value;
+      saveTest(collectionNumber, a, b, c, d, solution);
+    }
   });
 
-  document
+  /*   document
     .getElementById("displayContentSavedButton")
     .addEventListener("click", function () {
       array.forEach((element) => {
         document.getElementById("display").innerHTML += element + "<br>";
       });
-    });
+    }); */
 
   document
     .getElementById("downloadTests")

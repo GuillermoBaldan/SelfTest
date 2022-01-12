@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-  document
+  /* document
     .getElementById("donwloadData")
     .addEventListener("click", function () {
       let data = JSON.stringify(array);
@@ -49,19 +49,20 @@ document.addEventListener("DOMContentLoaded", () => {
       a.href = URL.createObjectURL(file);
       a.download = "SelfTest.json";
       a.click();
-    });
+    }); */
 
-  document.getElementById("loadData").addEventListener("click", function () {
+  /*  document.getElementById("loadData").addEventListener("click", function () {
     arrayContentLoaded = JSON.parse(externalFile);
-  });
+  }); */
 
-  document
+  /*   document
     .getElementById("displayContentLoadedButton")
     .addEventListener("click", function () {
       arrayContentLoaded.forEach((element) => {
         document.getElementById("display").innerHTML += element + "<br>";
       });
     });
+ */
 });
 
 export { allTestsArray };
