@@ -1,4 +1,8 @@
-import { saveTest } from "../SelfTest_functions.js";
+import {
+  saveTest,
+  createTestCollection,
+  formatMemoryApp,
+} from "../SelfTest_functions.js";
 
 let allTestsArray = JSON.parse(localStorage.getItem("SelfTest"));
 let arrayContentLoaded;
@@ -7,6 +11,8 @@ if (allTestsArray == null) {
   allTestsArray = [];
 }
 let externalFile;
+let modal = document.querySelector(".modal");
+let container = modal.querySelector(".container-modal");
 
 function readFile() {
   const display = document.getElementById("display");
@@ -29,10 +35,12 @@ function readFile() {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("saveButton").addEventListener("click", function () {
-    if (allTestsArray == []) {
+    console.log("allTestsArray:");
+    console.log(allTestsArray);
+    if (allTestsArray.length == 0) {
       //Display Modal for creating a new test collection
-      let modal = document.querySelector(".modal");
-      let container = modal.querySelector(".container-modal");
+
+      modal.classList.remove("hidden");
     } else {
       let select = document.getElementById("options");
       let collectionNumber = 0;
@@ -45,6 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
       saveTest(collectionNumber, a, b, c, d, solution);
     }
   });
+
+  document
+    .getElementsByClassName("create-test-collection-button")[0]
+    .addEventListener("click", function () {
+      let name = document.getElementsByClassName("input-test-name")[0].value;
+      createTestCollection(name);
+      modal.classList.add("hidden");
+    });
 
   /*   document
     .getElementById("displayContentSavedButton")
@@ -73,5 +89,15 @@ document.addEventListener("DOMContentLoaded", () => {
     arrayContentLoaded.forEach((element) => {
       document.getElementById("display").innerHTML += element + "<br>";
     });
+  });
+
+  document
+    .getElementById("formatAppMemory")
+    .addEventListener("click", function () {
+      formatMemoryApp();
+    });
+
+  document.getElementById("showData").addEventListener("click", function () {
+    console.log(JSON.parse(localStorage.getItem("SelfTest")));
   });
 });

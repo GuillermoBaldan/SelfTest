@@ -13,4 +13,18 @@ function saveTest(collectionNumber, question, a, b, c, d, solution) {
   localStorage.setItem("SelfTest", JSON.stringify(allTestsArray));
 }
 
-export { saveTest };
+function createTestCollection(name) {
+  let testCollection = {
+    name: name,
+    tests: [],
+  };
+  allTestsArray.push(testCollection);
+  localStorage.setItem("SelfTest", JSON.stringify(allTestsArray));
+}
+
+function formatMemoryApp() {
+  let voidData = [];
+  localStorage.setItem("SelfTest", JSON.stringify(voidData));
+}
+
+export { saveTest, createTestCollection, formatMemoryApp };

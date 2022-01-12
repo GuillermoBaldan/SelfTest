@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SelfTest</title>
     <script type="module" src="./save-data.js"></script>
+    <link href="./../style/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <label id="display"></label>
@@ -31,16 +32,29 @@
     <button id="displayContentSavedButton">main Menu</button>
     <button id="downloadTests">Donwload Test Collection</button>
     <button id="loadTests">Upload Test Collection</button>
+    <button id="formatAppMemory">Format App Memory</button>
+    <button id="showData">Show Data of Memory App</button>
     <input type="file" onchange="readFile()" name:"upload Data" /><br />
 
     <div class="modal hidden">
       <div class="container">
         <div class="body">
-          <div>Click outside this box to close the modal.</div>
-          p>
-          <p></p>
-          <p>You could of course add a close button etc</p>
-          <p>But this is left for the OP todo</p>
+          <form action="/" class="form">
+            <label for="email" class="label"
+              >Create a first Test Collection</label
+            >
+            <input
+              type="text"
+              id="test-name"
+              placeholder="write a test name collection"
+              class="input input-test-name"
+            />
+
+            <input
+              value="Create test Collection"
+              class="primary-button create-test-collection-button"
+            />
+          </form>
         </div>
       </div>
     </div>
