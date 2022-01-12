@@ -1,7 +1,7 @@
 import {
   saveTest,
   createTestCollection,
-  formatMemoryApp,
+  formatLocalStoreMemoApp,
 } from "../SelfTest_functions.js";
 
 let allTestsArray = JSON.parse(localStorage.getItem("SelfTest"));
@@ -13,6 +13,10 @@ if (allTestsArray == null) {
 let externalFile;
 let modal = document.querySelector(".modal");
 let container = modal.querySelector(".container-modal");
+
+function setVariable(variable, value) {
+  variable = value;
+}
 
 function readFile() {
   const display = document.getElementById("display");
@@ -94,10 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("formatAppMemory")
     .addEventListener("click", function () {
-      formatMemoryApp();
+      formatLocalStoreMemoApp();
     });
 
   document.getElementById("showData").addEventListener("click", function () {
     console.log(JSON.parse(localStorage.getItem("SelfTest")));
   });
 });
+
+export { setVariable, allTestsArray };

@@ -1,4 +1,4 @@
-import { allTestsArray } from "./index.js";
+import { allTestsArray, setVariable } from "./tests/save-data.js";
 
 function saveTest(collectionNumber, question, a, b, c, d, solution) {
   let test = {
@@ -22,9 +22,9 @@ function createTestCollection(name) {
   localStorage.setItem("SelfTest", JSON.stringify(allTestsArray));
 }
 
-function formatMemoryApp() {
+function formatLocalStoreMemoApp() {
   let voidData = [];
   localStorage.setItem("SelfTest", JSON.stringify(voidData));
 }
 
-export { saveTest, createTestCollection, formatMemoryApp };
+export { saveTest, createTestCollection, formatLocalStoreMemoApp };
